@@ -77,7 +77,7 @@ import { PDFViewer } from "./pdf_viewer.js";
 import { SecondaryToolbar } from "./secondary_toolbar.js";
 import { Toolbar } from "./toolbar.js";
 import { ViewHistory } from "./view_history.js";
-
+import { CommentSidebar } from "./comment_sidebar.js";
 const DISABLE_AUTO_FETCH_LOADING_BAR_TIMEOUT = 5000; // ms
 const FORCE_PAGES_LOADED_TIMEOUT = 10000; // ms
 const WHEEL_ZOOM_DISABLED_TIMEOUT = 1000; // ms
@@ -214,6 +214,8 @@ const PDFViewerApplication = {
   pdfHistory: null,
   /** @type {PDFSidebar} */
   pdfSidebar: null,
+  /** @type {CommentSidebar} */
+  commentSidebar: null,
   /** @type {PDFSidebarResizer} */
   pdfSidebarResizer: null,
   /** @type {PDFOutlineViewer} */
@@ -625,6 +627,15 @@ const PDFViewerApplication = {
       eventBus,
       this.l10n
     );
+    this.commentSidebar = new CommentSidebar({
+      elements: appConfig.sidebar,
+      pdfViewer: this.pdfViewer,
+      pdfThumbnailViewer: this.pdfThumbnailViewer,
+      eventBus,
+      l10n: this.l10n,
+    });
+    this.commentSidebar.onToggled = this.forceRendering.bind(this);
+
   },
 
   run(config) {

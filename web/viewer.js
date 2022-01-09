@@ -148,6 +148,27 @@ function getViewerConfiguration() {
       outerContainer: document.getElementById("outerContainer"),
       resizer: document.getElementById("sidebarResizer"),
     },
+    commentSidebar: {
+      // Divs (and sidebar button)
+      outerContainer: document.getElementById("outerContainer"),
+      viewerContainer: document.getElementById("viewerContainer"),
+      toggleButton: document.getElementById("showCommentSidebar"),
+      // Buttons
+      thumbnailButton: document.getElementById("viewThumbnail"),
+      outlineButton: document.getElementById("viewOutline"),
+      attachmentsButton: document.getElementById("viewAttachments"),
+      layersButton: document.getElementById("viewLayers"),
+      // Views
+      thumbnailView: document.getElementById("thumbnailView"),
+      outlineView: document.getElementById("outlineView"),
+      attachmentsView: document.getElementById("attachmentsView"),
+      layersView: document.getElementById("layersView"),
+      // View-specific options
+      outlineOptionsContainer: document.getElementById(
+        "outlineOptionsContainer"
+      ),
+      currentOutlineItemButton: document.getElementById("currentOutlineItem"),
+    },
     findBar: {
       bar: document.getElementById("findbar"),
       toggleButton: document.getElementById("viewFind"),

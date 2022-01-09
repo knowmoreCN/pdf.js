@@ -71,6 +71,7 @@
   --toolbarButton-menuArrow-icon: url(images/toolbarButton-menuArrow.svg);
   --toolbarButton-sidebarToggle-icon: url(images/toolbarButton-sidebarToggle.svg);
   --toolbarButton-secondaryToolbarToggle-icon: url(images/toolbarButton-secondaryToolbarToggle.svg);
+  --toolbarButton-showCommentSidebar-icon: url(images/toolbarButton-secondaryToolbarToggle.svg);
   --toolbarButton-pageUp-icon: url(images/toolbarButton-pageUp.svg);
   --toolbarButton-pageDown-icon: url(images/toolbarButton-pageDown.svg);
   --toolbarButton-zoomOut-icon: url(images/toolbarButton-zoomOut.svg);
@@ -1003,6 +1004,16 @@ html[dir="rtl"] .toolbarButton#sidebarToggle::before {
 html[dir="rtl"] .toolbarButton#secondaryToolbarToggle::before {
   transform: scaleX(-1);
 }
+
+
+.toolbarButton#showCommentSidebar::before {
+  -webkit-mask-image: var(--toolbarButton-showCommentSidebar-icon);
+  mask-image: var(--toolbarButton-showCommentSidebar-icon);
+}
+html[dir="rtl"] .toolbarButton#showCommentSidebar::before {
+  transform: scaleX(-1);
+}
+
 
 .toolbarButton.findPrevious::before {
   -webkit-mask-image: var(--findbarButton-previous-icon);
@@ -1945,4 +1956,16 @@ html[dir="rtl"] #documentPropertiesOverlay .row > * {
   #scaleSelectContainer {
     display: none;
   }
+}
+#commentSidebar {
+  position: absolute;
+  right:0px;
+  top: 32px;
+  bottom: 0;
+  width: var(--sidebar-width);
+  visibility: visible;
+  z-index: 100;
+  border-top: 1px solid rgba(51, 51, 51, 1);
+  transition-duration: var(--sidebar-transition-duration);
+  transition-timing-function: var(--sidebar-transition-timing-function);
 }
